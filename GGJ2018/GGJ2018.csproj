@@ -345,6 +345,7 @@
     <Compile Include="Assets\Scripts\Audio\GameSounds.cs" />
     <Compile Include="Assets\Scripts\Audio\PlayTypeSound.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\CRT\CRT.cs" />
     <Compile Include="Assets\Scripts\GetTextScript.cs" />
     <Compile Include="Assets\Scripts\MinigameHandler.cs" />
     <Compile Include="Assets\Scripts\Networking\ClientController.cs" />
@@ -392,6 +393,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Scripts\CRT\CRT.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
