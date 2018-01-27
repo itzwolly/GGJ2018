@@ -287,6 +287,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Audio\PlayTypeSound.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\MinigameHandler.cs" />
     <Compile Include="Assets\Scripts\Networking\ClientController.cs" />
     <Compile Include="Assets\Scripts\Networking\ServerController.cs" />
   </ItemGroup>
