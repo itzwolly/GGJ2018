@@ -13,7 +13,8 @@ namespace DLLLibrary
             new ReadyUpMessageResponse(null,false),
             new ConnectToServerMessage(null,false),
             new OtherPlayerConnectedToLobby(null,false),
-            new ConnectedToLobby(null,null)
+            new ConnectedToLobby(null,null),
+            new StartGameMessage()
         };
 
         public static void Serialize(Message pMessage, BinaryWriter pWriter) /*where T: Message*/
