@@ -57,6 +57,8 @@
     <Compile Include="Messages\ReadyUpMessageHelper.cs" />
     <Compile Include="Messages\ReadyUpMessageResponse.cs" />
     <Compile Include="Messages\ReadyUpMessageResponseHelper.cs" />
+    <Compile Include="Messages\StartGameMessage.cs" />
+    <Compile Include="Messages\StartGameMessageHelper.cs" />
     <Compile Include="OldActualMessages\InformClientMessage.cs" />
     <Compile Include="OldActualMessages\InformClientMessageHelper.cs" />
     <Compile Include="OldActualMessages\MoveMessageRequest.cs" />
@@ -81,8 +83,6 @@
     <Compile Include="TestMessages\ExitMessageHelper.cs" />
     <Compile Include="UtilityMessages\GameObjectInfo.cs" />
     <Compile Include="UtilityMessages\QuatornianHelper.cs" />
-    <Compile Include="UtilityMessages\StartGameMessage.cs" />
-    <Compile Include="UtilityMessages\StartMessageHelper.cs" />
     <Compile Include="UtilityMessages\Vec2.cs" />
     <Compile Include="UtilityMessages\Vec2Helper.cs" />
     <Compile Include="UtilityMessages\Vector3Helper.cs" />

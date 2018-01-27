@@ -292,6 +292,16 @@ Prefab:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224846413977299062, guid: 0866149a97ca15145a30b819c57375cc,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114667351916298098, guid: 0866149a97ca15145a30b819c57375cc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0866149a97ca15145a30b819c57375cc, type: 2}
   m_IsPrefabParent: 0
@@ -430,12 +440,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _server: localhost
   _port: 55555
-  _playerName: Noob
+  _playerName: Noobhaghsdsh
   _createNewGame: 0
   _sceneToLoad: ClientInGame
   _playerIndicatorHolder: {fileID: 1058827843}
   _playerIndicatorBrush: {fileID: 1604031414370790, guid: 083878c7de553fe488c2486f38bfd7c0,
     type: 2}
+  _readyColor: {r: 0, g: 1, b: 0.04827571, a: 1}
+  _notReadyColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1259547877
 Transform:
   m_ObjectHideFlags: 0

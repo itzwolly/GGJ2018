@@ -22,6 +22,11 @@ public class ClientController : MonoBehaviour
     [SerializeField] string _sceneToLoad;
     [SerializeField] GameObject _playerIndicatorHolder;
     [SerializeField] GameObject _playerIndicatorBrush;
+    [SerializeField] Color _readyColor;
+    [SerializeField] Color _notReadyColor;
+
+
+    private GameObject _playerIndicator;
 
     static Thread gameThred;
     static TcpClient client;
@@ -36,8 +41,9 @@ public class ClientController : MonoBehaviour
     private bool _isStillRunning;
     private bool _workingOnMsg = false;
 
-    private Dictionary<string, float> _players;
-    private Dictionary<string, bool> _readyPlayers;
+    private Dictionary<string, float> _players = new Dictionary<string, float>();
+    private Dictionary<string, bool> _readyPlayers = new Dictionary<string, bool>();
+    private Dictionary<string, GameObject> _readyGameObject = new Dictionary<string, GameObject>();
 
     private void StartHacking()
     {
@@ -93,12 +99,11 @@ public class ClientController : MonoBehaviour
     }
     void Update()
     {
-        if (_connected)
+        //Debug.Log(_connected);
+        if (_inLobby || _connected)
         {
-
             if (msg != null)
             {
-                //Debug.Log("Checking the message: " + msg);
                 if (msg is StringMessage)
                 {
                     Debug.Log("Received String: " + (msg as StringMessage).Message);
@@ -110,12 +115,42 @@ public class ClientController : MonoBehaviour
                 }
                 else if (msg is ConnectedToLobby)
                 {
-
+                    ConnectedToLobby con = msg as ConnectedToLobby;
+                    Debug.Log(con.Names.Count);
+                    for(int i=0;i<con.Names.Count;i++)
+                    {
+                        try
+                        {
+                            _readyPlayers.Add(con.Names[i], con.Readys[i]);
+                            GameObject temp = Instantiate(_playerIndicatorBrush);
+                            temp.transform.SetParent(_playerIndicatorHolder.transform);
+                            temp.GetComponent<GetTextScript>().GetTextBox().text = con.Names[i];
+                            _readyGameObject.Add(con.Names[i], temp);
+                            ReadyPlayer(con.Names[i], con.Readys[i]);
+                        }
+                        catch
+                        {
+                            Debug.Log("player is already in list");
+                        }
+                    }
                 }
                 else if (msg is OtherPlayerConnectedToLobby)
                 {
+                    Debug.Log("Received other connection");
+                    OtherPlayerConnectedToLobby con = msg as OtherPlayerConnectedToLobby;
+                    GameObject temp = Instantiate(_playerIndicatorBrush);
+                    temp.transform.SetParent(_playerIndicatorHolder.transform);
+                    temp.GetComponent<GetTextScript>().GetTextBox().text = con.Name;
+                    _readyPlayers.Add(con.Name, con.Ready);
+                    _readyGameObject.Add(con.Name, temp);
+                    ReadyPlayer(con.Name, con.Ready);
 
                 }
+                else if(msg is StartGameMessage)
+                {
+                    SceneManager.LoadSceneAsync(_sceneToLoad);
+                }
+                //Debug.Log("Checking the message: " + msg);
                 msg = null;
                 _workingOnMsg = false;
             }
@@ -126,6 +161,15 @@ public class ClientController : MonoBehaviour
     private void ReadyPlayer(string who,bool val)
     {
         _readyPlayers[who] = val;
+
+        if(val)
+        {
+            _readyGameObject[who].GetComponent<Image>().color = _readyColor;
+        }
+        else
+        {
+            _readyGameObject[who].GetComponent<Image>().color = _notReadyColor;
+        }
     }
 
     //if time edit to list not separate message checks
@@ -139,6 +183,7 @@ public class ClientController : MonoBehaviour
                 if (!_workingOnMsg)
                 {
                     msg = SerializeDeserialize.Deserialize(reader);
+
                     _workingOnMsg = true;
                 }
             }
