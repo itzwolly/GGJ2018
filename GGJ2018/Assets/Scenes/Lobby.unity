@@ -962,16 +962,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 389761630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f962a2606118dd742b8c077d4252a487, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d1b408e08c4fc1489b9fdf1f9389165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MainMenu: {fileID: 535726616}
-  _Credits: {fileID: 0}
-  _Lobby: {fileID: 1999154680}
-  _Login: {fileID: 0}
-  _select: {fileID: 0}
-  _select_audioSource: {fileID: 0}
-  _CreditsMenu: {fileID: 0}
 --- !u!1 &404721055
 GameObject:
   m_ObjectHideFlags: 0

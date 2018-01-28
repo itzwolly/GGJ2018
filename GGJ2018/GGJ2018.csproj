@@ -345,6 +345,7 @@
     <Compile Include="Assets\Scripts\Audio\GameSounds.cs" />
     <Compile Include="Assets\Scripts\Audio\PlayTypeSound.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\ButtonScriptLobby.cs" />
     <Compile Include="Assets\Scripts\CRT\CRT.cs" />
     <Compile Include="Assets\Scripts\GetTextScript.cs" />
     <Compile Include="Assets\Scripts\MinigameHandler.cs" />

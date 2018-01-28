@@ -7,9 +7,10 @@ public class ButtonScript : MonoBehaviour {
 
     [SerializeField] private GameObject _MainMenu;
     [SerializeField] private GameObject _Credits;
-    [SerializeField] private GameObject _Lobby;
-    [SerializeField] private GameObject _Login;
-
+    
+    
+    [SerializeField] private GameObject _Tutorial;
+    
     public AudioClip _select;
     public AudioSource _select_audioSource;
 
@@ -18,45 +19,48 @@ public class ButtonScript : MonoBehaviour {
     // [SerializeField] private GameObject _targetToHide2;
     [SerializeField] private GameObject _CreditsMenu;
 
-    
-
     // Use this for initialization
     void Start () {
-        _Login.SetActive(true);
+        
     }
     
-    public void Login()
+    //public void Login()
+    //{
+    //    Debug.Log("Turning it off again");
+    //    _Login.SetActive(false);
+    //}
+
+    //// сука ыуат rush b
+    public void Logout()
     {
-        _Login.SetActive(false);
+        Application.Quit();
+    }
+
+    public void LoadTutorial()
+    {
+            _MainMenu.SetActive(false);
+            _Tutorial.SetActive(true);
+            _select_audioSource.PlayOneShot(_select);
+
     }
 
     public void LoadGame() //CREDITS
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !_logged_in)
-        {
-            _logged_in = true;
-            Login();
-        }
-        else
-        {
+        
+        
             _MainMenu.SetActive(false);
             _Credits.SetActive(true);
+            _Tutorial.SetActive(!true);
             _select_audioSource.PlayOneShot(_select);
-        }
+       
     }
 
     public void LoadLobby()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !_logged_in) 
-        {
-            _logged_in = true;
-            Login();
-        }
-        else
-        {
+       
             SceneManager.LoadScene(1);
             _select_audioSource.PlayOneShot(_select);
-        }
+        
         
     }
 
@@ -72,7 +76,7 @@ public class ButtonScript : MonoBehaviour {
         {
             if (_MainMenu.activeSelf)
             {
-                return;
+               
             }
             else
             {
@@ -80,38 +84,25 @@ public class ButtonScript : MonoBehaviour {
                 _select_audioSource.PlayOneShot(_select);
                 _MainMenu.SetActive(true);
                 _Credits.SetActive(false);
+                _Tutorial.SetActive(false);
             }
            // _targetToHide2.SetActive(false);
-           
         }
-            
     }
-
-    public void AbortLobby()
+    
+    void LoggingIn()
     {
-        if (Input.GetKeyDown("escape"))
-        {
-            if (_Lobby.activeSelf)
-            {
-                SceneManager.LoadScene(0);
-            }
-            // _targetToHide2.SetActive(false);
-        }
-
+        _logged_in = true;
+        
     }
 
     // Update is called once per frame
     void Update () {
         if (Input.GetKeyDown(KeyCode.Return) && !_logged_in)
         {
-            _logged_in = true;
-            Login();
+            LoggingIn();
         }
-        else
-        {
-            //return;
-        }
+
         CreditsMenu();
-        AbortLobby();
     }
 }

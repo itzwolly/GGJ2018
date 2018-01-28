@@ -3,7 +3,7 @@ SceneListBegin?
 Assets/Scenes/Tim_Sandbox.unity
 Assets/Scenes/Lobby.unity
 SceneListEnd?
-36cf26f2b9fcfde6796c7fd62fd564d4 Assembly-CSharp.dll:.ButtonScript
+a73a6ae95475dba8a0b8639814f99485 Assembly-CSharp.dll:.ButtonScript
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -151,3 +151,4 @@ f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 ba5e981a060bae22cc3bbf124b15c9c5 Assembly-CSharp.dll:.GameSounds
 8979aef7dcafbf24d4ed0cdfeda718f7 Assembly-CSharp.dll:.ServerController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ButtonScriptLobby
