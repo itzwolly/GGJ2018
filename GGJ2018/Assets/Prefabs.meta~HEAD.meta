@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GGJ2018/Assets/Prefabs.meta~HEAD.meta
 guid: 9f775c182f78d72418131853a8331e5a
 timeCreated: 1517098952
+=======
+guid: 70a6be5cb9361a1418b15298a483b41f
+folderAsset: yes
+timeCreated: 1517104753
+>>>>>>> d9b6df59bad15409944681ffed73df933d8f585c:GGJ2018/Assets/PostProcessing/Resources.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

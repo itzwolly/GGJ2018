@@ -14,7 +14,9 @@ namespace DLLLibrary
             new ConnectToServerMessage(null,false),
             new OtherPlayerConnectedToLobby(null,false),
             new ConnectedToLobby(null,null),
-            new StartGameMessage()
+            new StartGameMessage(),
+            new ProgressBarInfo(null,0),
+            new ChunkCompletionInfo(0,false,0)
         };
 
         public static void Serialize(Message pMessage, BinaryWriter pWriter) /*where T: Message*/

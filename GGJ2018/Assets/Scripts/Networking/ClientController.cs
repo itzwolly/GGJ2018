@@ -35,6 +35,19 @@ public class ClientController : MonoBehaviour
     static BinaryReader reader;
     static BinaryWriter writer;
 
+    public static BinaryReader GetReader()
+    {
+        return reader;
+    }
+    public static BinaryWriter GetWriter()
+    {
+        return writer;
+    }
+    public static TcpClient GetClient()
+    {
+        return client;
+    }
+
     Message msg;
     private bool _inLobby;
     private bool _connected;
@@ -104,7 +117,12 @@ public class ClientController : MonoBehaviour
         {
             if (msg != null)
             {
-                if (msg is StringMessage)
+                if(msg is ExitMessage)
+                {
+                    Debug.Log("disconnected by server");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else if (msg is StringMessage)
                 {
                     Debug.Log("Received String: " + (msg as StringMessage).Message);
                 }
@@ -197,6 +215,7 @@ public class ClientController : MonoBehaviour
     private void OnApplicationQuit()
     {
         _isStillRunning = false;
+        SerializeDeserialize.Serialize(new ExitMessage(), writer);
         //gameThred.Abort();
     }
 

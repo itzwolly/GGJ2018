@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GGJ2018/Assets/Sprites.meta
 guid: a7dac6da0a0de6946873f0d31e81889d
 folderAsset: yes
 timeCreated: 1517098952
+=======
+guid: fce5860225f7b354b9cb1ce0b5f6baa2
+folderAsset: yes
+timeCreated: 1517104753
+>>>>>>> d9b6df59bad15409944681ffed73df933d8f585c:GGJ2018/Assets/PostProcessing/Editor.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

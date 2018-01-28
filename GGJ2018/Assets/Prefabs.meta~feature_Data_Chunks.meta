@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GGJ2018/Assets/Prefabs.meta~feature_Data_Chunks.meta
 guid: 4dee604c063419d49b50fa56e607d783
 timeCreated: 1517098952
+=======
+guid: 2c73325fdc3b7d4499f8cdb5d20363f2
+folderAsset: yes
+timeCreated: 1517104753
+>>>>>>> d9b6df59bad15409944681ffed73df933d8f585c:GGJ2018/Assets/PostProcessing/Runtime.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
