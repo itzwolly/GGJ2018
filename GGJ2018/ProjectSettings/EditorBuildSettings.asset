@@ -6,16 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
     path: Assets/Scenes/Networking/ClientLobby.unity
     guid: a3b467574ded94c4ea42b41451dfcddf
   - enabled: 1
-    path: Assets/Scenes/Networking/ClientInGame.unity
-    guid: 0f8a64845a7ed514ab946755dceb5b03
-=======
-    path: Assets/Scenes/Tim_Sandbox.unity
-    guid: 0a0c5339763e25e4485fae7e78d74332
-  - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: b1534a0a8dcb5584287d39e3dff48474
->>>>>>> 84ff0a9f0d5d687062f2768887d650a00f45228d
+    path: Assets/Scenes/Networking/PrototypeInGame.unity
+    guid: 01a84dd6ef53e9f4c9c7edf211564cfa
