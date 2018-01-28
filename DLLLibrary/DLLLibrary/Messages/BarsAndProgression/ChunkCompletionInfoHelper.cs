@@ -9,7 +9,7 @@ namespace DLLLibrary
 {
     public class ChunkCompletionInfoHelper : MessageHelper
     {
-        const int id = 10;
+        const int id = 20;
         public override int ID
         {
             get { return id; }

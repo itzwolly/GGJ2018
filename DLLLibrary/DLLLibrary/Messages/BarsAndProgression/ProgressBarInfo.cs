@@ -9,8 +9,10 @@ namespace DLLLibrary
     {
         public float[] Bars;
         public int Size;
-        public ProgressBarInfo(float[] bars,int size)
+        public string NextPlayer;
+        public ProgressBarInfo(float[] bars,int size,string next)
         {
+            NextPlayer = next;
             Bars = bars;
             Size = size;
             MessageHelp = new ProgressBarInfoHelper();

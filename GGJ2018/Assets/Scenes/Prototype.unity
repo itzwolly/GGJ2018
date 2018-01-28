@@ -223,8 +223,9 @@ GameObject:
   - component: {fileID: 96244270}
   - component: {fileID: 96244272}
   - component: {fileID: 96244271}
+  - component: {fileID: 96244273}
   m_Layer: 5
-  m_Name: Bar_1 (1)
+  m_Name: EnemyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -272,7 +273,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &96244272
@@ -281,6 +282,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 96244269}
+--- !u!114 &96244273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96244269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ed46ffa8da0fc45bc19cf003946f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &123550365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,8 +1157,9 @@ GameObject:
   - component: {fileID: 376054194}
   - component: {fileID: 376054196}
   - component: {fileID: 376054195}
+  - component: {fileID: 376054197}
   m_Layer: 5
-  m_Name: Bar_1 (2)
+  m_Name: CopBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.15895331, g: 0.29003102, b: 0.77205884, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1194,7 +1207,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &376054196
@@ -1203,6 +1216,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376054193}
+--- !u!114 &376054197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376054193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52977aa85d4502946a727842aacdc731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392072677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,7 +2588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radarLine: {fileID: 392072677}
   _chunks: {fileID: 2025019145}
-  _speed: 100
+  _speed: 50
 --- !u!1 &690326103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3384,46 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 572074086}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1099128660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1099128662}
+  - component: {fileID: 1099128661}
+  m_Layer: 0
+  m_Name: ChunkProcentageHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1099128661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099128660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342144294fa9f774e8baf5a6704f41e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1099128662
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099128660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 649.4376, y: 522.61084, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156474289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,8 +4546,9 @@ GameObject:
   - component: {fileID: 1444202917}
   - component: {fileID: 1444202919}
   - component: {fileID: 1444202918}
+  - component: {fileID: 1444202920}
   m_Layer: 5
-  m_Name: Bar_1
+  m_Name: MyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4531,7 +4596,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1444202919
@@ -4540,6 +4605,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444202916}
+--- !u!114 &1444202920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444202916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7b99068b2caf740ad81e13b38d1fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1477331534
 Prefab:
   m_ObjectHideFlags: 0
@@ -5229,7 +5305,7 @@ MonoBehaviour:
   _hitBox: {fileID: 401629027}
   _content: {fileID: 1927962658}
   _chunks: {fileID: 2025019145}
-  _scrollSpeed: 0.5
+  _scrollSpeed: 0.03
 --- !u!1 &1695873936
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,7 +5455,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112494420}
   m_HandleRect: {fileID: 2112494419}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6474,6 +6550,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2025019146}
+  - component: {fileID: 2025019147}
   m_Layer: 5
   m_Name: Chunks
   m_TagString: Untagged
@@ -6505,6 +6582,19 @@ RectTransform:
   m_AnchoredPosition: {x: 279, y: -58}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025019147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025019145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f07902481c1f04d96794a3c45842b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chunkBrushes: []
+  _chunkProcentageHandler: {fileID: 1099128661}
 --- !u!1 &2066870479
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ namespace DLLLibrary
             new OtherPlayerConnectedToLobby(null,false),
             new ConnectedToLobby(null,null),
             new StartGameMessage(),
-            new ProgressBarInfo(null,0),
+            new ProgressBarInfo(null,0,null),
             new ChunkCompletionInfo(0,false,0)
         };
 

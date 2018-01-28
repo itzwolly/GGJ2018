@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8486497dfe35d1540a99c544eabf11c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _copIncrease: 0.1
   _connected: {fileID: 289152652}
   _ready: {fileID: 957285327}
   _rooms: {fileID: 611331133}

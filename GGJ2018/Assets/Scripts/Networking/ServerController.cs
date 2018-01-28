@@ -12,6 +12,7 @@ using DLLLibrary;
 
 
 public class ServerController : MonoBehaviour {
+    [SerializeField] float _copIncrease;
     [SerializeField] Text _connected;
     string _connectedText;
     [SerializeField] Text _ready;
@@ -32,6 +33,11 @@ public class ServerController : MonoBehaviour {
     private Dictionary<TcpClient, float> _clientValues = new Dictionary<TcpClient, float>();
     private List<TcpClient> _clients = new List<TcpClient>();
 
+    private TcpClient _first;
+    private TcpClient _second;
+
+    private float _copValues;
+    private int count;
     /*
      _roomsWithPlayers
      _clientReady
@@ -44,6 +50,7 @@ public class ServerController : MonoBehaviour {
          */
     private TcpListener _listener;
     private bool _serverStart;
+    private bool _chunkUpdate=false;
 
     void Awake()
     {
@@ -69,13 +76,55 @@ public class ServerController : MonoBehaviour {
         _messageThread.Start();
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    void SendUpdate()
     {
+        foreach(TcpClient tClient in _clients)
+        {
+            Debug.Log("sending UJpdaye");
+            BinaryWriter twriter = new BinaryWriter(tClient.GetStream());
+            float firstVal,secondVal;
+            string nextName=_clientPlayer[_first];
+            firstVal = _clientValues[tClient];
+            secondVal = _clientValues[_first];
+            if (_first == tClient)
+            {
+                if (_second == null)
+                {
+                    nextName = "You are solo";
+                    secondVal = 0;
+                }
+                else
+                {
+                    nextName = _clientPlayer[_second];
+                    secondVal = _clientValues[_second];
+                }
+                firstVal = _clientValues[tClient];
+            }
+            float[] bars = { firstVal,secondVal,_copValues};
+            //SerializeDeserialize.Serialize(new ProgressBarInfo(bars, 3,nextName),twriter);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        count++;
+        if(count>60 || _chunkUpdate)
+        {
+            Debug.Log("sendingUpdate");
+            SendUpdate();
+            count = 0;
+            _chunkUpdate = false;
+        }
+        _copValues += _copIncrease/100;
         _ready.text = _readyText;
         _connected.text = _connectedText;
         _rooms.text = _roomsText;
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
         checkForNewClients();
     }
     private void StartServer(object obj)
@@ -157,7 +206,7 @@ public class ServerController : MonoBehaviour {
         else
         {
             Debug.Log(message);
-            if(message is ExitMessage)
+            if (message is ExitMessage)
             {
                 Debug.Log("disconnecting a clinet");
                 string name = _clientPlayer[pClient];
@@ -184,7 +233,13 @@ public class ServerController : MonoBehaviour {
                 }
             }
             else if (message is ConnectToServerMessage)
-            {
+            { 
+                if (_first == null)
+                    _first = pClient;
+                else if (_second == null)
+                    _second = pClient;
+
+                _clientValues.Add(pClient, 0);
                 _connectedText = _clients.Count.ToString();
                 ConnectToServerMessage connected = message as ConnectToServerMessage;
                 
@@ -250,7 +305,7 @@ public class ServerController : MonoBehaviour {
                         count++;
                 bool start = _gameToPlayers[room].Count / 2 < count;
                 _roomStarted[room] = start;
-                Debug.Log(_roomStarted[room]+"room has started");
+                //Debug.Log(_roomStarted[room]+ "room has started");
                 foreach (TcpClient client in _roomsWithPlayers[room])
                 {
                     BinaryWriter secwriter = new BinaryWriter(client.GetStream());
@@ -263,6 +318,28 @@ public class ServerController : MonoBehaviour {
                     }
                 }
                 _readyText =count.ToString();
+            }
+            else if(message is ChunkCompletionInfo)
+            {
+                ChunkCompletionInfo info = message as ChunkCompletionInfo;
+                if(info.Type)//normal chunk
+                {
+                    _clientValues[pClient] += info.Procent * info.Size / 300;
+                }
+                else if(pClient!=_first)//steal chunk
+                {
+                    float dif = _clientValues[_first] - _clientValues[pClient];
+
+                    _clientValues[pClient] += dif / 2 * (info.Procent * info.Size / 3);
+                    _clientValues[_first] -= dif / 3 * (info.Procent * info.Size / 3);
+                }
+
+                if(_clientValues[pClient]>_clientValues[_first])
+                {
+                    _second = _first;
+                    _first = pClient;
+                }
+                _chunkUpdate = true;
             }
         }
 

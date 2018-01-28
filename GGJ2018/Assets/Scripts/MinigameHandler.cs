@@ -17,6 +17,7 @@ public class MinigameHandler : MonoBehaviour {
     private EventSystem _eventSystem;
 
     private GameObject _currentChunk;
+    private int _currentChunkSize;
 
     private bool _startScrolling = false;
     private bool _chunkSelected = false;
@@ -56,7 +57,8 @@ public class MinigameHandler : MonoBehaviour {
     public void SelectChunk() {
         if (!_chunkSelected) {
             _currentChunk = _eventSystem.currentSelectedGameObject;
-            Debug.Log("chunk reselected");
+            _currentChunkSize = _currentChunk.GetComponent<ChunkScript>().GetSize();
+            Debug.Log("chunk reselected "+_currentChunkSize);
             keysHit = 0;
             keysTotal = _letters.Length;//select correct chunk key list
             _chunkSelected = true;
@@ -87,7 +89,7 @@ public class MinigameHandler : MonoBehaviour {
 
     private void ScrollText() {
         if (_startScrolling) {
-            _horizontalScrollBar.value += _scrollSpeed * Time.deltaTime;
+            _horizontalScrollBar.value += _scrollSpeed * _currentChunkSize * Time.deltaTime;
 
             if (_horizontalScrollBar.value == 1) {
                 _startScrolling = false;
@@ -107,9 +109,7 @@ public class MinigameHandler : MonoBehaviour {
                     Button chunk = _chunkList[i].GetComponent<Button>();
                     chunk.interactable = true;
                 }
-
-                Debug.Log(_currentChunk.name);
-                Debug.Log(_chunks.transform.GetChild(0).gameObject.name);
+                
             } else {
                 if (!HasEnded()) {
                     HandleKeyHit();

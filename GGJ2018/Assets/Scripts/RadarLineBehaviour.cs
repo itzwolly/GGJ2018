@@ -17,7 +17,6 @@ public class RadarLineBehaviour : MonoBehaviour {
 	void Start () {
         _maskRect = GetComponent<RectTransform>();
         _lineRect = _radarLine.GetComponent<RectTransform>();
-
         _startPosition = _lineRect.anchoredPosition;
     }
 	
@@ -35,12 +34,23 @@ public class RadarLineBehaviour : MonoBehaviour {
         for (int i = 0; i < _chunks.transform.childCount; i++) {
             GameObject chunk = _chunks.transform.GetChild(i).gameObject;
             RectTransform rectTransform = chunk.GetComponent<RectTransform>();
+            ChunkScript script = chunk.GetComponent<ChunkScript>();
 
             if (_radarLine.transform.position.y > chunk.transform.position.y - rectTransform.rect.height / 2 + _lineRect.rect.height / 2 
                 && _radarLine.transform.position.y < chunk.transform.position.y - _lineRect.rect.height / 2) {
                 // Update chunky monkey sprite..
                 // chunk.GetComponent<Image>().sprite = newSprite;
-                chunk.GetComponent<Image>().color = new Color(Mathf.Sin(Time.time), Mathf.Sin(Time.time), Mathf.Sin(Time.time));
+                if (!script.PassedOver)
+                {
+                    chunk.GetComponent<ChunkScript>().GrowSize();
+                    Image img = chunk.GetComponent<Image>();
+                    img.color = new Color(img.color.r, img.color.g+50, img.color.b);
+                    script.PassedOver = true;
+                }
+            }
+            else
+            {
+                script.PassedOver = false;
             }
         }
     }
