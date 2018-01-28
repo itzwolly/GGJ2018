@@ -11,11 +11,9 @@ public class ButtonScriptLobby : MonoBehaviour {
     {
         if (Input.GetKeyDown("escape"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 1)
-            {
+            
                 SceneManager.LoadScene(0);
-            }
-            // _targetToHide2.SetActive(false);
+            
         }
 
     }

@@ -247,6 +247,84 @@ Transform:
   m_PrefabParentObject: {fileID: 4283124373121554, guid: 220701bd369045e4dabd1cd039b17e9a,
     type: 2}
   m_PrefabInternal: {fileID: 2063759184}
+--- !u!1 &109658463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1430166031973714, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 109658464}
+  - component: {fileID: 109658466}
+  - component: {fileID: 109658465}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &109658464
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224819506052858360, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109658463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
+  m_Children: []
+  m_Father: {fileID: 735402028}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 999.5, y: 470.5}
+  m_SizeDelta: {x: 271.9, y: 42.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &109658465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114204993075712242, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109658463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: da87c2bf33977984d82b598f2aee885f, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: kali linux v2018.1 custom edition (c) 2018 modded by AIFC Elite Hacker Team
+--- !u!222 &109658466
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222567462205551840, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109658463}
 --- !u!1 &190625097
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,8 +419,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -248.65442, y: 400.54135}
-  m_SizeDelta: {x: 681.31, y: 47.78}
+  m_AnchoredPosition: {x: -235, y: 400.54135}
+  m_SizeDelta: {x: 708.6, y: 47.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354849712
 MonoBehaviour:
@@ -430,7 +508,7 @@ Prefab:
     - target: {fileID: 224927440328233576, guid: b75f74dc587f675469ff8b3cbb12e84d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224927440328233576, guid: b75f74dc587f675469ff8b3cbb12e84d,
         type: 2}
@@ -505,6 +583,11 @@ Prefab:
     - target: {fileID: 1553319916537666, guid: b75f74dc587f675469ff8b3cbb12e84d, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114530092075679094, guid: b75f74dc587f675469ff8b3cbb12e84d,
+        type: 2}
+      propertyPath: m_Text
+      value: help -o
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b75f74dc587f675469ff8b3cbb12e84d, type: 2}
@@ -878,6 +961,7 @@ RectTransform:
   - {fileID: 1076636080}
   - {fileID: 1841944250}
   - {fileID: 425933076}
+  - {fileID: 109658464}
   - {fileID: 535726617}
   - {fileID: 1016699301}
   - {fileID: 104673405}
@@ -1719,6 +1803,84 @@ RectTransform:
   m_AnchoredPosition: {x: 1166, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1520588292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1479349474000464, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1520588293}
+  - component: {fileID: 1520588295}
+  - component: {fileID: 1520588294}
+  m_Layer: 5
+  m_Name: Tutorial (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1520588293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224427305173439826, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1520588292}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
+  m_Children: []
+  m_Father: {fileID: 535726617}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -523.25, y: -356.9}
+  m_SizeDelta: {x: 38.7, y: 32.204}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1520588294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114967976694445598, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1520588292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.77205884, g: 0.77205884, b: 0.77205884, a: 0.05882353}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: da87c2bf33977984d82b598f2aee885f, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: cd
+--- !u!222 &1520588295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222052557167512552, guid: b75f74dc587f675469ff8b3cbb12e84d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1520588292}
 --- !u!1001 &1534474962
 Prefab:
   m_ObjectHideFlags: 0
@@ -1764,7 +1926,7 @@ Prefab:
     - target: {fileID: 224316427915518070, guid: 99306e1dbd16cd94a864ceeecfc64eee,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224316427915518070, guid: 99306e1dbd16cd94a864ceeecfc64eee,
         type: 2}
@@ -1819,6 +1981,29 @@ Prefab:
     - target: {fileID: 1173131548695472, guid: 99306e1dbd16cd94a864ceeecfc64eee, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114180230499557360, guid: 99306e1dbd16cd94a864ceeecfc64eee,
+        type: 2}
+      propertyPath: m_Text
+      value: '#  This software is designed to BREAK INTO a bank''s network to steal
+        money. $$$
+
+        #  Steps to infiltrate the system are as following:
+
+
+        1. SELECT a data chunk that is getting transmitted between servers and which
+        you will intercept.
+
+        2. DECRYPT the data chunk by pressing the right character at the right time.
+        Program: [data_crackr]
+
+        3. OBTAIN VALUABLE INFO to get closer to gaining full access to their network.
+
+
+        P.S. Be swift and don''t get traced! You can monitor your and other hackers''
+        progress, as well as active tracing, in the [hackr_trackr] window.
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99306e1dbd16cd94a864ceeecfc64eee, type: 2}
@@ -1883,7 +2068,7 @@ Prefab:
     - target: {fileID: 224895971365818394, guid: 321609300d806ab49899f36fa185ce65,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224895971365818394, guid: 321609300d806ab49899f36fa185ce65,
         type: 2}
@@ -2143,7 +2328,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4283124373121554, guid: 220701bd369045e4dabd1cd039b17e9a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1637567503070266, guid: 220701bd369045e4dabd1cd039b17e9a, type: 2}
       propertyPath: m_IsActive
