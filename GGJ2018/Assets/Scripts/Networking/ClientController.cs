@@ -35,6 +35,11 @@ public class ClientController : MonoBehaviour
     static BinaryReader reader;
     static BinaryWriter writer;
 
+    public static float _myProgress;
+    public static float _enemyProgress;
+    public static string _nextEnemy;
+    public static float _copProgress;
+
     public static BinaryReader GetReader()
     {
         return reader;
@@ -162,6 +167,16 @@ public class ClientController : MonoBehaviour
                     _readyPlayers.Add(con.Name, con.Ready);
                     _readyGameObject.Add(con.Name, temp);
                     ReadyPlayer(con.Name, con.Ready);
+
+                }
+                else if(msg is ProgressBarInfo)
+                {
+                    Debug.Log("got progress");
+                    ProgressBarInfo info = msg as ProgressBarInfo;
+                    _copProgress = info.Bars[info.Size-1];
+                    _myProgress = info.Bars[0];
+                    _enemyProgress = info.Bars[1];
+                    _nextEnemy = info.NextPlayer;
 
                 }
                 else if(msg is StartGameMessage)

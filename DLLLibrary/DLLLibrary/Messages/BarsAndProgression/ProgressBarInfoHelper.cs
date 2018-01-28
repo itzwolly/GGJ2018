@@ -9,7 +9,7 @@ namespace DLLLibrary
 {
     public class ProgressBarInfoHelper : MessageHelper
     {
-        const int id = 9;
+        const int id = 19;
         public override int ID
         {
             get { return id; }
@@ -22,6 +22,7 @@ namespace DLLLibrary
             {
                 writer.Write(req.Bars[i]);
             }
+            writer.Write(req.NextPlayer);
         }
 
         public override Message Deserialize(BinaryReader reader)
@@ -32,7 +33,8 @@ namespace DLLLibrary
             {
                 bars[i] = (float)reader.ReadDouble();
             }
-            return new ProgressBarInfo(bars,size);
+            string next = reader.ReadString();
+            return new ProgressBarInfo(bars,size,next);
         }
     }
 }

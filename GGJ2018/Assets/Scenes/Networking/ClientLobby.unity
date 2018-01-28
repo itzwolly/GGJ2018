@@ -285,12 +285,12 @@ Prefab:
     - target: {fileID: 224846413977299062, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224455606558145818, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.000000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224846413977299062, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
@@ -442,7 +442,7 @@ MonoBehaviour:
   _port: 55555
   _playerName: sdfa
   _createNewGame: 0
-  _sceneToLoad: PrototypeInGame
+  _sceneToLoad: Prototype
   _playerIndicatorHolder: {fileID: 1058827843}
   _playerIndicatorBrush: {fileID: 1604031414370790, guid: 083878c7de553fe488c2486f38bfd7c0,
     type: 2}

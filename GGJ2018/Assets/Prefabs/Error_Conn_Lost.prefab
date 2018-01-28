@@ -260,7 +260,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Connection lost: The server was unable to open connection due to a network
@@ -347,8 +347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -403.35, y: 350.1}
-  m_SizeDelta: {x: 458.5, y: 124.83}
+  m_AnchoredPosition: {x: -256.6, y: 350.1}
+  m_SizeDelta: {x: 752, y: 124.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224797337392677880
 RectTransform:
@@ -406,6 +406,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -212, y: -678}
+  m_AnchoredPosition: {x: 231, y: -335}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

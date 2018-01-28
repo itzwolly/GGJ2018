@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Networking/PrototypeInGame.unity
     guid: 01a84dd6ef53e9f4c9c7edf211564cfa
+  - enabled: 1
+    path: Assets/Scenes/Prototype.unity
+    guid: ecab13dbe5ff13e49992cdcd1eadbccd
