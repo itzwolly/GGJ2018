@@ -26,13 +26,24 @@ public class ServerController : MonoBehaviour {
 
     private Dictionary<int, List<string>> _gameToPlayers = new Dictionary<int, List<string>>();
     private Dictionary<string, int> _playerToGames = new Dictionary<string, int>();
+    private Dictionary<int, bool> _roomStarted = new Dictionary<int, bool>();
     private Dictionary<TcpClient, string> _clientPlayer = new Dictionary<TcpClient, string>();
     private Dictionary<string, TcpClient> _playerClient = new Dictionary<string, TcpClient>();
+    private Dictionary<TcpClient, float> _clientValues = new Dictionary<TcpClient, float>();
     private List<TcpClient> _clients = new List<TcpClient>();
 
-
+    /*
+     _roomsWithPlayers
+     _clientReady
+     _gameToPlayers
+     _playerToGames
+     _roomStarted
+     _clientPlayer
+     _playerClient
+     _clients
+         */
     private TcpListener _listener;
-    private bool _gameStarted;
+    private bool _serverStart;
 
     void Awake()
     {
@@ -41,7 +52,12 @@ public class ServerController : MonoBehaviour {
     }
     private void OnApplicationQuit()
     {
-        _gameStarted = false;
+        foreach(TcpClient client in _clients)
+        {
+            BinaryWriter writer = new BinaryWriter(client.GetStream());
+            SerializeDeserialize.Serialize(new ExitMessage(), writer);
+        }
+        _serverStart = false;
     }
 
     // Use this for initialization
@@ -64,10 +80,10 @@ public class ServerController : MonoBehaviour {
     }
     private void StartServer(object obj)
     {
-        _gameStarted = true;
-        while (_gameStarted)
+        _serverStart = true;
+        while (_serverStart)
         {
-            Debug.Log("Handling Clients");
+            //Debug.Log("Handling Clients");
             handleClients();
             Thread.Sleep(16);
         }
@@ -101,14 +117,24 @@ public class ServerController : MonoBehaviour {
                 }
                 catch (Exception e)
                 {
+                    BinaryWriter writer = new BinaryWriter(client.GetStream());
+                    SerializeDeserialize.Serialize(new ExitMessage(),writer);
                     Debug.Log("Client gave error, removing...");
                     Debug.Log(e.ToString());
+                    string name = _clientPlayer[client];
+                    int room = _playerToGames[name];
+
+                    _roomsWithPlayers[room].Remove(client);
+                    _clientReady.Remove(name);
+                    _gameToPlayers[room].Remove(name);
+                    _playerToGames.Remove(name);
+                    _clientPlayer.Remove(client);
+                    _playerClient.Remove(name);
+
+                    _clients.RemoveAt(i);
+
                     client.GetStream().Close();
                     client.Close();
-                    _gameToPlayers[_playerToGames[_clientPlayer[_clients[i]]]].Remove(_clientPlayer[_clients[i]]);
-                    _playerToGames.Remove(_clientPlayer[_clients[i]]);
-                    _clientPlayer.Remove(_clients[i]);
-                    _clients.RemoveAt(i);
                     Debug.Log("" + _clients.Count + " clients left...");
                 }
             }
@@ -130,7 +156,26 @@ public class ServerController : MonoBehaviour {
         }
         else
         {
-            if (message is StringMessage)
+            Debug.Log(message);
+            if(message is ExitMessage)
+            {
+                Debug.Log("disconnecting a clinet");
+                string name = _clientPlayer[pClient];
+                int room = _playerToGames[name];
+
+                _roomsWithPlayers[room].Remove(pClient);
+                _clientReady.Remove(name);
+                _gameToPlayers[room].Remove(name);
+                _playerToGames.Remove(name);
+                _clientPlayer.Remove(pClient);
+                _playerClient.Remove(name);
+
+                _clients.Remove(pClient);
+
+                pClient.GetStream().Close();
+                pClient.Close();
+            }
+            else if (message is StringMessage)
             {
                 Debug.Log("received: " + (message as StringMessage).Message);
                 foreach (TcpClient client in _clients)
@@ -163,6 +208,12 @@ public class ServerController : MonoBehaviour {
                         //_roomsWithReady.Add(0, new List<string>());
                         _gameToPlayers.Add(0, new List<string>());
                     }
+                    //else if (_roomStarted[_roomsWithPlayers.Keys.Count - 1])
+                    //{
+                    //    _roomsWithPlayers.Add(_roomsWithPlayers.Keys.Count, new List<TcpClient>());
+
+                    //    _gameToPlayers.Add(_roomsWithPlayers.Keys.Count - 1, new List<string>());
+                    //}
                     _roomsWithPlayers[_roomsWithPlayers.Keys.Count-1].Add(pClient);
                     //_playersWithRooms.Add(pClient, _roomsWithPlayers.Keys.Count - 1);
                     _playerToGames.Add(connected.Name, _roomsWithPlayers.Keys.Count - 1);
@@ -197,13 +248,17 @@ public class ServerController : MonoBehaviour {
                 foreach (string s in _gameToPlayers[room])
                     if (_clientReady[s])
                         count++;
-
+                bool start = _gameToPlayers[room].Count / 2 < count;
+                _roomStarted[room] = start;
+                Debug.Log(_roomStarted[room]+"room has started");
                 foreach (TcpClient client in _roomsWithPlayers[room])
                 {
                     BinaryWriter secwriter = new BinaryWriter(client.GetStream());
                     SerializeDeserialize.Serialize(new ReadyUpMessageResponse(clientName, b), secwriter);
-                    if (_gameToPlayers[room].Count / 2 < count)
+                    if (start)
                     {
+                        count--;
+                        _clientReady[_clientPlayer[client]] = false;
                         SerializeDeserialize.Serialize(new StartGameMessage(), secwriter);
                     }
                 }

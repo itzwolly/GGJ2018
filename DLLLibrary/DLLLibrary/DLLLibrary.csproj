@@ -47,12 +47,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messages\ConnectedToLobby.cs" />
-    <Compile Include="Messages\ConnectedToLobbyHelper.cs" />
-    <Compile Include="Messages\ConnectedToServerMessage.cs" />
-    <Compile Include="Messages\ConnectedToServerMessageHelper.cs" />
-    <Compile Include="Messages\OtherPlayerConnectedToLobby.cs" />
-    <Compile Include="Messages\OtherPlayerConnectedToLobbyHelper.cs" />
+    <Compile Include="Messages\BarsAndProgression\ChunkCompletionInfo.cs" />
+    <Compile Include="Messages\BarsAndProgression\ChunkCompletionInfoHelper.cs" />
+    <Compile Include="Messages\Connection\ConnectedToLobby.cs" />
+    <Compile Include="Messages\Connection\ConnectedToLobbyHelper.cs" />
+    <Compile Include="Messages\Connection\ConnectedToServerMessage.cs" />
+    <Compile Include="Messages\Connection\ConnectedToServerMessageHelper.cs" />
+    <Compile Include="Messages\Connection\OtherPlayerConnectedToLobby.cs" />
+    <Compile Include="Messages\Connection\OtherPlayerConnectedToLobbyHelper.cs" />
+    <Compile Include="Messages\BarsAndProgression\ProgressBarInfo.cs" />
+    <Compile Include="Messages\BarsAndProgression\ProgressBarInfoHelper.cs" />
     <Compile Include="Messages\ReadyUpMessage.cs" />
     <Compile Include="Messages\ReadyUpMessageHelper.cs" />
     <Compile Include="Messages\ReadyUpMessageResponse.cs" />
