@@ -442,7 +442,7 @@ MonoBehaviour:
   _port: 55555
   _playerName: sdfa
   _createNewGame: 0
-  _sceneToLoad: ClientInGame
+  _sceneToLoad: PrototypeInGame
   _playerIndicatorHolder: {fileID: 1058827843}
   _playerIndicatorBrush: {fileID: 1604031414370790, guid: 083878c7de553fe488c2486f38bfd7c0,
     type: 2}

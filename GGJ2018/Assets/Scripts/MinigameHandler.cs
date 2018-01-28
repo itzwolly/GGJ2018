@@ -16,10 +16,14 @@ public class MinigameHandler : MonoBehaviour {
     private RectTransform _hitBoxRect;
     private EventSystem _eventSystem;
 
+    private GameObject _currentChunk;
+
     private bool _startScrolling = false;
     private bool _chunkSelected = false;
     private int _index = 0;
 
+    float keysHit;
+    float keysTotal;
 	// Use this for initialization
 	void Start () {
         _eventSystem = GameObject.FindGameObjectWithTag("EvtSystem").GetComponent<EventSystem>();
@@ -40,6 +44,10 @@ public class MinigameHandler : MonoBehaviour {
 	
     public void SelectChunk() {
         if (!_chunkSelected) {
+            _currentChunk = _eventSystem.currentSelectedGameObject;
+            Debug.Log("chunk reselected");
+            keysHit = 0;
+            keysTotal = _letters.Length;//select correct chunk key list
             _chunkSelected = true;
         }
     }
@@ -71,6 +79,11 @@ public class MinigameHandler : MonoBehaviour {
                 _startScrolling = false;
                 _chunkSelected = false;
                 _index = 0;
+                _horizontalScrollBar.value = 0;
+                //Debug.Log("keysHit - "+ keysHit +" || keysTotal - "+ keysTotal);
+                _currentChunk.GetComponent<ChunkScript>().SetProcentage(keysHit / keysTotal);
+                Destroy(_currentChunk);
+                _eventSystem.SetSelectedGameObject(_chunks.transform.GetChild(0).gameObject);
             } else {
                 if (!HasEnded()) {
                     HandleKeyHit();
@@ -88,11 +101,12 @@ public class MinigameHandler : MonoBehaviour {
     private void HandleKeyHit() {
         GameObject letter = _letters[_index];
 
-        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Return)) {
+        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Space)) {
             if (Input.GetKeyDown(_letters[_index].GetComponent<Text>().text.ToLower())) {
                 if (_hitBoxRect.transform.position.x - 1.0f < letter.transform.position.x
                     && _hitBoxRect.transform.position.x + 1.5f > letter.transform.position.x) {
                     Debug.Log("Scored a point! How great..");
+                    keysHit++;
                     _index++;
                 } else if (_hitBoxRect.transform.position.x + 3.0f < letter.transform.position.x) {
                     Debug.Log("Pressed the button too early!");
