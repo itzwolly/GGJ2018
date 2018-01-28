@@ -285,12 +285,12 @@ Prefab:
     - target: {fileID: 224846413977299062, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 224455606558145818, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 224846413977299062, guid: 0866149a97ca15145a30b819c57375cc,
         type: 2}
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _server: localhost
   _port: 55555
-  _playerName: Noobhaghsdsh
+  _playerName: sdfa
   _createNewGame: 0
   _sceneToLoad: ClientInGame
   _playerIndicatorHolder: {fileID: 1058827843}
