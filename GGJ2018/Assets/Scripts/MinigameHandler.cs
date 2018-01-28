@@ -97,7 +97,19 @@ public class MinigameHandler : MonoBehaviour {
                 //Debug.Log("keysHit - "+ keysHit +" || keysTotal - "+ keysTotal);
                 _currentChunk.GetComponent<ChunkScript>().SetProcentage(keysHit / keysTotal);
                 Destroy(_currentChunk);
-                _eventSystem.SetSelectedGameObject(_chunks.transform.GetChild(0).gameObject);
+                if (_chunks.transform.GetChild(1).gameObject != null) {
+                    _eventSystem.SetSelectedGameObject(_chunks.transform.GetChild(1).gameObject);
+                } else {
+                    _eventSystem.SetSelectedGameObject(null);
+                }
+
+                for (int i = 0; i < _chunkList.Count; i++) {
+                    Button chunk = _chunkList[i].GetComponent<Button>();
+                    chunk.interactable = true;
+                }
+
+                Debug.Log(_currentChunk.name);
+                Debug.Log(_chunks.transform.GetChild(0).gameObject.name);
             } else {
                 if (!HasEnded()) {
                     HandleKeyHit();

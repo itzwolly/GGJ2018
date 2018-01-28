@@ -10,7 +10,7 @@ public class ChunkScript : MonoBehaviour
     [SerializeField] Color _stealCol;
     bool _type;
 
-    float _procentage;
+    float _percentage;
     ChunkHandler _chunkHandler;
 
     public void SetSize(int v)
@@ -20,12 +20,13 @@ public class ChunkScript : MonoBehaviour
 
     public void SetProcentage(float pro)
     {
-        _procentage = pro;
+        _percentage = pro;
     }
     
 	// Use this for initialization
 	void Start () {
         _type = (Random.value > 0.5f);
+
         if(_type)
         {
             gameObject.GetComponent<Image>().color = _normalCol;
@@ -39,7 +40,7 @@ public class ChunkScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        _chunkHandler.SendChunkDestroy(_procentage, _type, _size);
+        _chunkHandler.SendChunkDestroy(_percentage, _type, _size);
     }
 
     // Update is called once per frame
