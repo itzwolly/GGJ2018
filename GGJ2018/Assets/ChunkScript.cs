@@ -53,7 +53,7 @@ public class ChunkScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        _chunkHandler.SendChunkDestroy(_percentage, _type, _size);
+        //_chunkHandler.SendChunkDestroy(_percentage, _type, _size);
     }
 
     // Update is called once per frame
