@@ -97,7 +97,7 @@ public class MinigameHandler : MonoBehaviour {
                 _index = 0;
                 _horizontalScrollBar.value = 0;
                 //Debug.Log("keysHit - "+ keysHit +" || keysTotal - "+ keysTotal);
-                _currentChunk.GetComponent<ChunkScript>().SetProcentage(keysHit / keysTotal);
+                _currentChunk.GetComponent<ChunkScript>().SetProcentage(keysHit / keysTotal,(int)(keysTotal-keysHit));
                 Destroy(_currentChunk);
                 if (_chunks.transform.GetChild(1).gameObject != null) {
                     _eventSystem.SetSelectedGameObject(_chunks.transform.GetChild(1).gameObject);
@@ -132,19 +132,23 @@ public class MinigameHandler : MonoBehaviour {
                 if (_hitBoxRect.transform.position.x - 150.0f < letter.transform.position.x
                     && _hitBoxRect.transform.position.x + 100f > letter.transform.position.x) {
                     Debug.Log("Scored a point! How great..");
+                    _hitBox.GetComponent<Image>().color = new Color(0, 1, 0) ;
                     keysHit++;
                     _index++;
                 } else if (_hitBoxRect.transform.position.x + 190.0f < letter.transform.position.x) {
                     Debug.Log("Pressed the button too early!");
+                    _hitBox.GetComponent<Image>().color = new Color(1, 0, 0);
                 }
             } else {
                 Debug.Log("Just pressed the wrong button");
+                _hitBox.GetComponent<Image>().color = new Color(1, 0, 0);
             }
         }
 
         if (_hitBoxRect.transform.position.x - 80.0f > letter.transform.position.x) {
             Debug.Log("Pressed too late...");
             _index++;
+            _hitBox.GetComponent<Image>().color = new Color(1, 0, 0);
         }
     }
 

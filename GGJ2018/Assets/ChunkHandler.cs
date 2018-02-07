@@ -7,9 +7,9 @@ public class ChunkHandler : MonoBehaviour {
     [SerializeField] ChunkProcentageHandler _chunkProcentageHandler;
 	// Use this for initialization
 
-    public void SendChunkDestroy(float procent, bool type, int size)
+    public void SendChunkDestroy(float procent, bool type, int size, int missed)
     {
-        _chunkProcentageHandler.SendBrokenChunk(procent, type, size);
+        _chunkProcentageHandler.SendBrokenChunk(procent, type, size,missed);
     }
 
 	void Start () {

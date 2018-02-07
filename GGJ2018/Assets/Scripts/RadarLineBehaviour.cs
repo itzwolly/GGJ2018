@@ -9,6 +9,12 @@ public class RadarLineBehaviour : MonoBehaviour {
     [SerializeField] private GameObject _chunks;
     [SerializeField] private float _speed;
 
+    int _size;
+
+    public Sprite _size1;
+    public Sprite _size2;
+    public Sprite _size3;
+
     private RectTransform _maskRect;
     private RectTransform _lineRect;
     private Vector3 _startPosition;
@@ -40,11 +46,25 @@ public class RadarLineBehaviour : MonoBehaviour {
                 && _radarLine.transform.position.y < chunk.transform.position.y - _lineRect.rect.height / 2) {
                 // Update chunky monkey sprite..
                 // chunk.GetComponent<Image>().sprite = newSprite;
+               
                 if (!script.PassedOver)
                 {
                     chunk.GetComponent<ChunkScript>().GrowSize();
                     Image img = chunk.GetComponent<Image>();
-                    img.color = new Color(img.color.r, img.color.g+50, img.color.b);
+                    //img.color = new Color(img.color.r, img.color.g+50, img.color.b);
+                    _size = chunk.GetComponent<ChunkScript>().GetSize();
+                    if (_size == 1)
+                    {
+                        chunk.GetComponent<Image>().sprite = _size1;
+                    }
+                    if (_size == 2)
+                    {
+                        chunk.GetComponent<Image>().sprite = _size2;
+                    }
+                    if (_size == 3)
+                    {
+                        chunk.GetComponent<Image>().sprite = _size3;
+                    }
                     script.PassedOver = true;
                 }
             }

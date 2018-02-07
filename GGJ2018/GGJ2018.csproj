@@ -302,6 +302,7 @@
     <Compile Include="Assets\ChunkScript.cs" />
     <Compile Include="Assets\CopBar.cs" />
     <Compile Include="Assets\EnemyBar.cs" />
+    <Compile Include="Assets\HandleBars.cs" />
     <Compile Include="Assets\MyBar.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
@@ -358,6 +359,7 @@
     <Compile Include="Assets\Scripts\Networking\ClientController.cs" />
     <Compile Include="Assets\Scripts\Networking\ServerController.cs" />
     <Compile Include="Assets\Scripts\RadarLineBehaviour.cs" />
+    <Compile Include="Assets\Scripts\SoundsPopobar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />

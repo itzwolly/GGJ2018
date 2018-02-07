@@ -13,6 +13,7 @@ public class ChunkScript : MonoBehaviour
     public bool PassedOver;
 
     float _percentage;
+    int missed;
     ChunkHandler _chunkHandler;
 
     public void SetSize(int v)
@@ -26,12 +27,15 @@ public class ChunkScript : MonoBehaviour
 
     public void GrowSize()
     {
-        if(_size<3)
+        if(_size<=4)
             _size ++;
+        if (_size == 4)
+            _size=1;
     }
 
-    public void SetProcentage(float pro)
+    public void SetProcentage(float pro,int pMissed)
     {
+        missed = pMissed;
         _percentage = pro;
     }
 
@@ -53,7 +57,7 @@ public class ChunkScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        _chunkHandler.SendChunkDestroy(_percentage, _type, _size);
+        _chunkHandler.SendChunkDestroy(_percentage, _type, _size,missed);
     }
 
     // Update is called once per frame

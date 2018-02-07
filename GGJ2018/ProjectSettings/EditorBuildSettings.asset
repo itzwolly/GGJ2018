@@ -5,12 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Networking/ClientLobby.unity
     guid: a3b467574ded94c4ea42b41451dfcddf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Networking/PrototypeInGame.unity
     guid: 01a84dd6ef53e9f4c9c7edf211564cfa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Prototype.unity
     guid: ecab13dbe5ff13e49992cdcd1eadbccd
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: e4ca55b97ac7af741ba42bc449889c6f
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 857cbe07593062c498d9955990c34765
+  - enabled: 1
+    path: Assets/Scenes/Disconnected.unity
+    guid: be9823bb8295d7e47822c592c758ba1e
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: a05ec3b25054bfe4a8055a59eba50024
+  - enabled: 1
+    path: Assets/Scenes/Loss.unity
+    guid: 56814f5a95347924da4397afd1a18cd2
