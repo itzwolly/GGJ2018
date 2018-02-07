@@ -4,13 +4,11 @@ using UnityEngine;
 using DLLLibrary;
 
 public class ChunkProcentageHandler : MonoBehaviour {
-    [SerializeField] HandleBars _handle;
+
     // Use this for initialization
-    public void SendBrokenChunk(float procent,bool type, int size, int missedKeys)
+    public void SendBrokenChunk(float procent,bool type, int size)
     {
-        _handle.ChunkEnded(procent,type,size,missedKeys);
-        //SerializeDeserialize.Serialize(new ChunkCompletionInfo(procent,type,size), ClientController.GetWriter());
-        Debug.Log("procent = " + procent);
+        ClientController.SendChunkInfo(procent, type, size);
     }
 	
 	// Update is called once per frame

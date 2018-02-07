@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radarLine: {fileID: 392072677}
   _chunks: {fileID: 2025019145}
-  _speed: 50
+  _speed: 1
 --- !u!1 &690326103
 GameObject:
   m_ObjectHideFlags: 0

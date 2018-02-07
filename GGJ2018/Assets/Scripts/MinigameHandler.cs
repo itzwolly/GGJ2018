@@ -70,7 +70,7 @@ public class MinigameHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (_chunkSelected) {
-            Debug.Log("Calling chunky monkey");
+            //Debug.Log("Calling chunky monkey");
             DisableChunkInteraction();
             ScrollText();
         }

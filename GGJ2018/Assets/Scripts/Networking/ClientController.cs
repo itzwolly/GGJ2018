@@ -53,6 +53,13 @@ public class ClientController : MonoBehaviour
         return client;
     }
 
+    public static void SendChunkInfo(float procent, bool type, int size)
+    {
+        Debug.Log(procent + "|" + type + "|" + size);
+
+        SerializeDeserialize.Serialize(new ChunkCompletionInfo(procent, type, size), writer);
+    }
+
     Message msg;
     private bool _inLobby;
     private bool _connected;
@@ -125,7 +132,7 @@ public class ClientController : MonoBehaviour
                 if(msg is ExitMessage)
                 {
                     Debug.Log("disconnected by server");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    SceneManager.LoadScene("Disconnected");
                 }
                 else if (msg is StringMessage)
                 {
@@ -171,17 +178,17 @@ public class ClientController : MonoBehaviour
                 }
                 else if(msg is ProgressBarInfo)
                 {
-                    Debug.Log("got progress");
                     ProgressBarInfo info = msg as ProgressBarInfo;
                     _copProgress = info.Bars[info.Size-1];
                     _myProgress = info.Bars[0];
                     _enemyProgress = info.Bars[1];
                     _nextEnemy = info.NextPlayer;
+                    Debug.Log("got progress " + _myProgress + " " + _enemyProgress + " " + _copProgress);
 
                 }
                 else if(msg is StartGameMessage)
                 {
-                    SceneManager.LoadSceneAsync(_sceneToLoad);
+                    SceneManager.LoadScene(_sceneToLoad);
                 }
                 //Debug.Log("Checking the message: " + msg);
                 msg = null;
@@ -215,6 +222,7 @@ public class ClientController : MonoBehaviour
             {
                 if (!_workingOnMsg)
                 {
+                    Debug.Log("mnew message");
                     msg = SerializeDeserialize.Deserialize(reader);
 
                     _workingOnMsg = true;
