@@ -1,6 +1,6 @@
 # GGJ2018 #
 
-A prototype game made in Unity for the Global Game Jam 2018
+A prototype game made in Unity (C#) for the Global Game Jam 2018
 
 # Made By #
 Oleksandr Mazur - Producer, Level Designer\
